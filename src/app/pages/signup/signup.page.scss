@@ -1,0 +1,19 @@
+.icon-box{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img-captured{
+    height: 250px;
+    border-radius: 20px;
+}
+
+.invalid{
+    color: orange;
+}
+.img-container{
+    display: flex;
+    justify-content: center;
+}
