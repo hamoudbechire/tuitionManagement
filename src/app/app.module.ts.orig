@@ -1,0 +1,38 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouteReuseStrategy } from '@angular/router';
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module'; 
+import { HttpClientModule } from '@angular/common/http';
+export const config = {
+<<<<<<< HEAD
+  serviceBase: "http://192.168.1.230:1003/",
+=======
+  serviceBase: "http://192.168.1.243:1008/api/",
+>>>>>>> fd614cd (add admin commit 1)
+  //clientId: '',
+  //clientSecret: ''
+}
+@NgModule({
+  declarations: [AppComponent],
+  entryComponents: [],
+<<<<<<< HEAD
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    HttpClientModule
+  ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+  ],
+  bootstrap: [AppComponent],
+=======
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  bootstrap: [AppComponent]
+>>>>>>> fd614cd (add admin commit 1)
+})
+export class AppModule {}
