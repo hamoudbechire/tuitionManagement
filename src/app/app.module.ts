@@ -5,11 +5,14 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { ProfesseurPipe } from './pages/professeur.pipe';
-
+import { AppRoutingModule } from './app-routing.module'; 
+export const config = {
+  serviceBase: "http://localhost:55420/",
+  //clientId: '',
+  //clientSecret: ''
+}
 @NgModule({
-  declarations: [AppComponent, ProfesseurPipe],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
