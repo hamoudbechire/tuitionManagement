@@ -8,12 +8,22 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'professeur',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'professeur',
     loadChildren: () => import('./pages/professeur/professeur.module').then( m => m.ProfesseurPageModule)
   },
+  {
+    path: 'add-professeur/:id',
+    loadChildren: () => import('./pages/add-professeur/add-professeur.module').then( m => m.AddProfesseurPageModule)
+  },
+  {
+    path: 'matiere',
+    loadChildren: () => import('./pages/matiere/matiere.module').then( m => m.MatierePageModule)
+  },
+
 
 ];
 

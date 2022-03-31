@@ -1,3 +1,37 @@
 <ion-app> 
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu menuId="main-menu" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <button (click)="goProfil()">
+          <ion-thumbnail slot="start"> 
+            <img src="{{imUser}}" title="Go to profil"> 
+          </ion-thumbnail>
+        </button>
+        <ion-title slot="end">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/professeur"> 
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            <ion-label>Professeurs</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
+        <ion-menu-toggle>
+          <ion-item routerLink="/matiere">
+            <ion-icon slot="start" name="medkit-outline"></ion-icon>
+            <ion-label>Matieres</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
+        <ion-item >
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          <ion-label>LogOut</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet  id="main"></ion-router-outlet>
 </ion-app>

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>{{btn_txt}}</ion-title>
+  </ion-toolbar>
+</ion-header> 
+ 
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="register()">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+      </ion-row>
+
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <!-- <div text-align="center">
+          <h1>Register</h1>
+        </div> -->
+        <div padding>
+           <!--FirstName and LastName-->
+          <ion-row>
+            <ion-col>
+              <ion-input name="firstName" type="text" placeholder="First Name " [(ngModel)]="professeur.firstName" required>
+                <ion-icon slot="start" name="person-outline"></ion-icon>
+              </ion-input>
+            </ion-col>
+            
+            <ion-col>
+              <ion-input name="lastName" type="text" placeholder="Last Name " [(ngModel)]="professeur.lastName" required>
+                <ion-icon slot="start" name="person-outline"></ion-icon>
+              </ion-input>
+            </ion-col>
+          </ion-row>
+           
+          <!--Mail and Phone-->  
+          <ion-row>
+            <ion-col>
+              <ion-input name="mail" type="mail" placeholder="Email" [(ngModel)]="professeur.mail" required>
+                <ion-icon name="at-circle-outline"></ion-icon>
+              </ion-input>
+            </ion-col>
+            
+            <ion-col>
+              <ion-input name="phone" type="phone" placeholder="Phone " [(ngModel)]="professeur.phone" required>
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </ion-input>
+            </ion-col>
+          </ion-row>
+         
+        </div>
+       
+        <div padding>
+            <ion-button size="large" type="submit" [disabled]="form.invalid" color="success" expand="block">
+            <span *ngIf="!loading">{{btn_txt}}</span>
+            <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          <span *ngIf="loading" class="visually-hidden">Loading...</span>
+          </ion-button>
+        </div>
+       
+      </ion-col>
+    </ion-grid>
+  </form>
+</ion-content>

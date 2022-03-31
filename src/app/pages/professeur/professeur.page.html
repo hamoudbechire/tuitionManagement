@@ -1,9 +1,68 @@
-<ion-header>
+<ion-header >
   <ion-toolbar>
-    <ion-title>professeur</ion-title>
+    <ion-buttons >
+      <ion-menu-button slot="start" menu="main-menu" ></ion-menu-button>
+      <br><br><br>
+      <!-- Default Searchbar -->    
+      <ion-searchbar slot="end" [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" 
+        (ionInput)="onInput($event)" (ionCancel)="onCancel()" >
+      </ion-searchbar>
+    </ion-buttons>
+    <br><br>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="text-end">
+    <button class="btn btn-primary" ion-button type="submit" (click)="addProfesseur()"><ion-icon name="add-sharp"></ion-icon>Add Professeur</button>
+    
+  </div>
+  <br>
+
+
+  <h1 class="text-center"> <b>List des Professeurs</b></h1>
+  <br>
+  <div class="d-flex justify-content-center" *ngIf="!DataLoaded">
+    <div class="spinner-grow" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <!--Msg Error-->
+  <div *ngIf="errorMessage != '' " class="alert alert-warning" role="alert">
+     err : {{errorMessage}}
+  </div>
+
+  <ion-grid *ngFor="let p of this.serviceProfesseur.professeurs">
+    <ion-row>
+      <ion-col>
+        <b> {{p.firstName}}  {{p.lastName}}</b> 
+      </ion-col>
+      <ion-col>
+        <ion-button color="success" (click)="updateProfesseur(p.idProf)"> <ion-icon name="reader-outline"></ion-icon></ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="danger" (click)="deleteProfesseur(p.idProf)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+    <hr>
+  </ion-grid>
+  <!-- <div *ngFor="let d of this.serviceEmployee.employees">
+    <b> Id : </b> {{d.ID}} <br>
+    <b> Title : </b> {{d.FirstName}} <br>
+    
+    <b> Date Creation:  </b> {{d.CreationDate | date : "y/MM/dd" }} <br>
+    <b> Date Modification: </b> {{d.ModificationDate | date : "y/MM/dd" }}  <br>
+
+    <div class="row">
+      <button class="btn btn-success" ion-button type="submit" (click)="UpdateEmployee(d.id)">Update Employee</button>
+      <button class="btn btn-danger" ion-button type="submit" (click)="DeleteEmployee(d.id)">Delete Employee</button>
+    </div>
+    <hr color="green">
+  </div> -->
+  <div *ngIf="!this.serviceProfesseur.professeurs" class="alert alert-warning" role="alert">
+      Aucun data de title {{myInput}}
+  </div>
+
+  <button class="btn btn-light" ion-button type="submit" (click)="locale()">Locale</button>
 
 </ion-content>
