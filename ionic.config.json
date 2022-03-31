@@ -1,0 +1,7 @@
+{
+  "name": "tuitionManagementClient",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
