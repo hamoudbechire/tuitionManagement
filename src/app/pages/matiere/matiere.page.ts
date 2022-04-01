@@ -51,6 +51,7 @@ export class MatierePage implements OnInit {
       this.showInput = true;
     }
   }
+  //show detail from matiere
   detailMatiere(id){
     this.id = id;  
   }
