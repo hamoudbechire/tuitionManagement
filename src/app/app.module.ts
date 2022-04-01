@@ -8,7 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; 
-import { HttpClientModule } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
 export const config = {
   serviceBase: "http://192.168.1.230:1003/",
   //clientId: '',
@@ -17,11 +17,11 @@ export const config = {
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-    HttpClientModule
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule], 
+  bootstrap: [AppComponent],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+    FormBuilder
   ],
 })
 export class AppModule {}

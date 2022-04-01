@@ -27,14 +27,14 @@ export class ProfesseurPage implements OnInit {
     )
   }
 
-  AddProfesseur(){
+  addProfesseur(){
     this.router.navigate(['/add-professeur/-1'])
   }
-  UpdateProfesseur(id){
+  updateProfesseur(id){
     this.router.navigate(['/add-professeur/'+id])
     console.log("Updated prof : ", id); 
   }
-  DeleteProfesseur(id){
+  deleteProfesseur(id){
     this.serviceProfesseur.deleteProfesseur(id).subscribe(
       data => this.serviceProfesseur.getAllProfesseurs().subscribe()
     )

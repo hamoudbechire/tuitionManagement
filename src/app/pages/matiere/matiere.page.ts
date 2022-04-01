@@ -41,8 +41,10 @@ export class MatierePage implements OnInit {
         nameMatiere : this.matiere
       }
       this.matiereService.addMatiere(mat).subscribe(
-        data => {this.matiere = '';
-        this.showInput = false;
+        data => {
+          this.matiereService.getAllMatieres().subscribe();
+          this.matiere = '';
+          this.showInput = false;
       },
         err => this.matiere = ''
       );

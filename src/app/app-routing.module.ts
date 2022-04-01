@@ -18,12 +18,16 @@ const routes: Routes = [
   {
     path: 'add-professeur/:id',
     loadChildren: () => import('./pages/add-professeur/add-professeur.module').then( m => m.AddProfesseurPageModule)
+  },
+  {
     path: 'signup',
     loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   },
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
     path: 'matiere',
     loadChildren: () => import('./pages/matiere/matiere.module').then( m => m.MatierePageModule)
   },

@@ -10,7 +10,7 @@
  
 
 <ion-content>
-  <form #form="ngForm" (ngSubmit)="register()">
+  <form [formGroup]="form" (ngSubmit)="register()" > <!-- #form="ngForm"-->
     <ion-grid>
       <ion-row color="primary" justify-content-center>
       </ion-row>
@@ -23,13 +23,20 @@
            <!--FirstName and LastName-->
           <ion-row>
             <ion-col>
-              <ion-input name="firstName" type="text" placeholder="First Name " [(ngModel)]="professeur.firstName" required>
+              <ion-input formControlName="firstName" type="text" placeholder="First Name " >
                 <ion-icon slot="start" name="person-outline"></ion-icon>
               </ion-input>
+              <!-- Error messages   -->
+              <!-- error-message" *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched) -->
+              <span color="red" class="error ion-padding" *ngIf="form.get('firstName').hasError(minLength) && (form.get('firstName').dirty || form.get('firstName').touched)">
+                <!--form.invalid && !errorCtr.firstName.errors?.minLength-->
+                Name is required.
+              </span>
+             
             </ion-col>
             
             <ion-col>
-              <ion-input name="lastName" type="text" placeholder="Last Name " [(ngModel)]="professeur.lastName" required>
+              <ion-input formControlName="lastName" type="text" placeholder="Last Name " >
                 <ion-icon slot="start" name="person-outline"></ion-icon>
               </ion-input>
             </ion-col>
@@ -38,18 +45,32 @@
           <!--Mail and Phone-->  
           <ion-row>
             <ion-col>
-              <ion-input name="mail" type="mail" placeholder="Email" [(ngModel)]="professeur.mail" required>
+              <ion-input formControlName="mail" type="mail" placeholder="Email" >
                 <ion-icon name="at-circle-outline"></ion-icon>
               </ion-input>
             </ion-col>
             
             <ion-col>
-              <ion-input name="phone" type="phone" placeholder="Phone " [(ngModel)]="professeur.phone" required>
+              <ion-input formControlName="phone" type="phone" placeholder="Phone " >
                 <ion-icon name="phone-portrait-outline"></ion-icon>
               </ion-input>
             </ion-col>
           </ion-row>
          
+         
+          <ion-row>
+            <ion-item>
+              <ion-label>Matiere</ion-label>
+              <ion-select (ionChange)="onChange($event)" >
+                <ion-select-option *ngFor="let matiere of this.matriereService.matieres" value="{{matiere.idMatiere}}">
+                  {{matiere.nameMatiere}}
+                </ion-select-option>
+              </ion-select>
+              <!-- <ion-select [(ngModel)]="number">
+                <ion-option *ngFor="let count of quantity" value="count"></ion-option>
+              </ion-select> -->
+          </ion-item>
+          </ion-row>
         </div>
        
         <div padding>
