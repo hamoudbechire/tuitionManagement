@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as firebase from 'firebase';
+//import * as firebase from 'firebase';
 import { firebaseConfig } from './app.module';
 
 @Component({
@@ -10,6 +10,6 @@ import { firebaseConfig } from './app.module';
 export class AppComponent {
   imUser = '../../../assets/images/userIm.png';
   constructor() {
-    firebase.initializeApp(firebaseConfig)
+    //firebase.initializeApp(firebaseConfig)
   }
 }
