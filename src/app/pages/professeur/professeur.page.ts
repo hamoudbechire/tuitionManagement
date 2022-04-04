@@ -28,6 +28,10 @@ export class ProfesseurPage implements OnInit {
     )
   }
 
+  test(){
+    console.log("Test ....");
+    
+  }
    //Refrech
    doRefresh(event) {
     console.log('Begin async operation');

@@ -32,8 +32,8 @@ export class ProfesseurService {
     var listData = [];
     //this.haveData = false;
     //this.allData = this.http.get<any[]>(this.getApiUrl);
-    this.http.get(config.serviceBase +'api/proffesseur/' ).subscribe(
-      data =>{
+    this.http.get<Professeur[]>(config.serviceBase +'api/proffesseur/' ).subscribe(
+      data=>{
         var i = 0;
         console.log("Data service ", data);
         console.log("firstName data 0 ",data[0].firstName);

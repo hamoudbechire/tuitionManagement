@@ -10,9 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormBuilder } from '@angular/forms';
 
 export const config = {
-  serviceBase: "http://192.168.1.243:1008/api/",
-  //clientId: '',
-  //clientSecret: ''
+  serviceBase: "http://192.168.1.230:1003/", //"http://192.168.1.243:1008/api/",
+  clientId: 'school-management',
+  clientSecret: 'Hmd123'
 }
 export const firebaseConfig = {
   apiKey: "AIzaSyAFZI8joTuquaEJouw04qM91g0MpenEGNI",

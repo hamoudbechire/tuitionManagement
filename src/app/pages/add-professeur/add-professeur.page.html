@@ -61,7 +61,7 @@
           <ion-row>
             <ion-item>
               <ion-label>Matiere</ion-label>
-              <ion-select (ionChange)="onChange($event)" >
+              <ion-select (ionChange)="onChange($event)" selected="2">
                 <ion-select-option *ngFor="let matiere of this.matriereService.matieres" value="{{matiere.idMatiere}}">
                   {{matiere.nameMatiere}}
                 </ion-select-option>

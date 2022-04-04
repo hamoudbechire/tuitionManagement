@@ -36,7 +36,11 @@ export class AddProfesseurPage implements OnInit {
     if (this.id != -1) {
       this.btn_txt = "Update Professeur";
       this.profeseeurService.getProfesseurById(this.id).subscribe(
-        data => this.professeur = data
+        data => {
+          this.form.setValue(data);
+          this.professeur = data;
+          console.log("Data ", this.professeur); 
+        }
       );
       console.log("Yes");
     }
@@ -50,7 +54,9 @@ export class AddProfesseurPage implements OnInit {
   ngOnInit() {
     this.matriereService.getAllMatieres().subscribe();
 
-    this.form = this.fromBuilder.group({
+    this.form = this.fromBuilder.group({ 
+      idProf : null, 
+     // matiereId : null,
       firstName : ['default', [Validators.required, Validators.minLength(3)]],
       lastName : ['', [Validators.required, Validators.minLength(3)]],
       mail: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]], 

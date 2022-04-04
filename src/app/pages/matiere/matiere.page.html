@@ -77,9 +77,13 @@
   <ion-toolbar>
     
     <ion-tabs>
-      <button class="btn btn-light" ion-button type="submit" (click)="addMatiere()">
+      <!-- <button class="btn btn-light" ion-button type="submit" (click)="addMatiere()">
         <ion-icon name="add-sharp"></ion-icon>
-      </button>
+      </button> -->
+      <ion-router-outlet></ion-router-outlet>
+        <ion-tab-bar slot="bottom" (click)="addMatiere()">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-tab-bar>
 <!--       
       <ion-tab-bar slot="bottom" >
         <button (click)="addMatiere()" tab="schedule">

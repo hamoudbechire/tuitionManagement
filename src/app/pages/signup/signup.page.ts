@@ -5,8 +5,8 @@ import { PasswordValidator } from 'src/app/validators/password.validator';
 import { SignupService } from 'src/app/services/signup.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx'; 
 import { ActionSheetController, NavController, Platform } from '@ionic/angular';
-import { cfaSignIn, cfaSignInPhone, cfaSignInPhoneOnCodeReceived, cfaSignInPhoneOnCodeSent } from 'capacitor-firebase-auth';
-import * as firebase from 'firebase';
+//import { cfaSignIn, cfaSignInPhone, cfaSignInPhoneOnCodeReceived, cfaSignInPhoneOnCodeSent } from 'capacitor-firebase-auth';
+//import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-signup',
