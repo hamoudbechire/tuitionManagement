@@ -1,38 +1,51 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { Camera } from '@ionic-native/camera/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; 
-import { HttpClientModule } from '@angular/common/http';
-export const config = {
 <<<<<<< HEAD
-  serviceBase: "http://192.168.1.230:1003/",
+import { FormBuilder } from '@angular/forms';
 =======
+
+>>>>>>> 3a7b698 (signup front)
+export const config = {
   serviceBase: "http://192.168.1.243:1008/api/",
->>>>>>> fd614cd (add admin commit 1)
   //clientId: '',
   //clientSecret: ''
 }
+export const firebaseConfig = {
+  apiKey: "AIzaSyAFZI8joTuquaEJouw04qM91g0MpenEGNI",
+  authDomain: "schoolmanagement-f62f5.firebaseapp.com",
+  projectId: "schoolmanagement-f62f5",
+  storageBucket: "schoolmanagement-f62f5.appspot.com",
+  messagingSenderId: "85336488198",
+  appId: "1:85336488198:web:cf8b594239f48aadec0687",
+  measurementId: "G-7574VH2ZNN"
+};
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
 <<<<<<< HEAD
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
-  ],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule], 
   bootstrap: [AppComponent],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 =======
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  bootstrap: [AppComponent]
->>>>>>> fd614cd (add admin commit 1)
+  bootstrap: [AppComponent],
+  providers: [
+   { 
+    provide: RouteReuseStrategy, 
+    useClass: IonicRouteStrategy,
+   },
+   Camera, 
+>>>>>>> 3a7b698 (signup front)
+    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+    FormBuilder
+  ],
 })
 export class AppModule {}

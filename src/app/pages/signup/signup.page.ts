@@ -4,6 +4,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { PasswordValidator } from 'src/app/validators/password.validator';
 import { SignupService } from 'src/app/services/signup.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx'; 
+import { ActionSheetController, NavController, Platform } from '@ionic/angular';
+import { cfaSignIn, cfaSignInPhone, cfaSignInPhoneOnCodeReceived, cfaSignInPhoneOnCodeSent } from 'capacitor-firebase-auth';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-signup',
@@ -24,6 +27,7 @@ export class SignupPage implements OnInit {
     public fromBuilder: FormBuilder,
     private signupService: SignupService,
     private camera: Camera,
+    public actionSheetController: ActionSheetController,
 
   ) {
     this.formValidation();
@@ -59,21 +63,71 @@ export class SignupPage implements OnInit {
   ngOnInit() {
   }
 
-  selectImage(){
-    console.log("selected");
-    console.log(this.signup_form.valid);
-    console.log(this.signup_form.errors);
-    console.log(this.admin);
+  async selectImage(){
+    const actionSheet = await this.actionSheetController.create({
+      header: "selectImageSource",
+      buttons: [{
+        text: "loadFromLibrary",
+        handler: () => {
+          this.getImageFromLibrary(0);
+        }
+      },
+      {
+        text: "useCamera",
+        handler: () => {
+          this.getImageUsingCamera();
+        }
+      },
+      {
+        text: "Cancel",
+        role: 'cancel'
+      }
+      ]
+    });
+    await actionSheet.present();
   }
   signup(){
-    this.admin.profilImageUrl = "profilImageUrl";
-    console.log(this.admin);
-    this.signupService.addAdmin(this.admin).then(data => console.log(data))
+    this.admin.phone = "+222"+this.admin.phone;
+    if (this.captureDataUrl == '' || this.captureDataUrl == null) {
+      this.admin.profilImageUrl = "";
+      console.log(this.admin);
+
+      console.log("add admin without img")
+      this.signupService.addAdmin(this.admin).then(data => console.log(data));
+    }else{
+      this.signupService.uploadIUmageSignup(this.captureDataUrl, this.admin.phone).then(
+        mediaData => {
+          this.admin.profilImageUrl = mediaData as string;
+          console.log(this.admin);
+          
+          console.log("add admin with img");
+          this.signupService.addAdmin(this.admin).then(data => console.log(data));
+        },
+        err => console.log(err)
+      )
+    }
   }
 
   hideShowPassword() {
     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
     this.passwordIcon = this.passwordIcon === 'eye-off-outline' ? 'eye-outline' : 'eye-off-outline';
+  }
+  getImageUsingCamera() {
+    const cameraOptions: CameraOptions = {
+      quality: 100,
+      targetHeight: 600,
+      targetWidth: 600,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+    };
+    this.camera.getPicture(cameraOptions)
+      .then((captureDataUrl) => {
+        this.captureDataUrl = 'data:image/jpeg;base64,' + captureDataUrl;
+        this.showIcon = false;
+      }, (err) => {
+        //console.log(err);
+      });
   }
   getImageFromLibrary(sourceType) {
     const cameraOptions: CameraOptions = {

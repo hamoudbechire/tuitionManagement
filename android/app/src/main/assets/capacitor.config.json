@@ -1,6 +1,26 @@
 {
-	"appId": "io.ionic.starter",
+	"appId": "com.smpnt.schoolManagement",
 	"appName": "tuitionManagementClient",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"plugins": {
+		"CapacitorFirebaseAuth": {
+			"providers": [
+				"phone"
+			],
+			"languageCode": "en",
+			"nativeAuth": false,
+			"properties": {
+				"google": {
+					"hostedDomain": "my-custom-domain.com"
+				}
+			},
+			"permissions": {
+				"google": [
+					"profile",
+					"https://www.googleapis.com/auth/drive"
+				]
+			}
+		}
+	}
 }

@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'professeur',
+    redirectTo: 'signup',
     pathMatch: 'full'
   },
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/add-professeur/add-professeur.module').then( m => m.AddProfesseurPageModule)
   },
   {
-    path: 'signup',
+  path: 'signup',
     loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   },
   {
