@@ -18,6 +18,7 @@ export class MatierePage implements OnInit {
   matiere = '';
   showInput = false;
 
+  inputSearch ;
   constructor( private matiereService : MatiereService,
     private router : Router) { }
 
@@ -26,6 +27,35 @@ export class MatierePage implements OnInit {
       data => this.dataLoaded = true,
       err => this.errorMessage = err.message
     )
+  }
+   //search 
+   onInput($event){
+    // this.inputSearch += $event.detail.data;
+    // console.log("Event search ", $event.detail.data);
+    // console.log("Mot search ", this.inputSearch);
+    // await this.serviceProfesseur.searchProfesseeur(this.inputSearch) 
+
+    // Reset items back to all of the items
+    var val = $event.target.value;
+    this.inputSearch = val;
+    console.log('input ', val);
+    console.log('input item ',  val.trim());
+    this.matiereService.searchMatiere(this.inputSearch);
+  }
+  //Cancel search
+  async onCancel(){
+    this.inputSearch = '';
+    console.log("onCancel ^^^^^^^^^^^^^^ ");
+    //this.myInput = ' ';
+    
+    //this.myData = this.service.allData;
+    this.matiereService.getAllMatieres().subscribe(
+      data => {
+        //this.service.AddData = data as any;
+        console.log("Cancel " , data);
+        this.router.navigate(['/matiere/']);
+      }
+    );
   }
 
   back(){

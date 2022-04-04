@@ -12,6 +12,30 @@ export class MatiereService {
   
   constructor(private http : HttpClient) { }
 
+  searchMatiere(name : string) {
+    var listData = [];
+    //this.haveData = false;
+    //this.allData = this.http.get<any[]>(this.getApiUrl);
+    this.http.get(config.serviceBase +'api/matiere/' ).subscribe(
+      data =>{
+        var i = 0;
+        console.log("Data service ", data);
+        console.log("Name data 0 ",data[0].nameMatiere);
+        while(data){
+          console.log("firstName data 0 ",data[0].nameMatiere);
+          var nameMatiere = data[i].nameMatiere;
+          console.log("defaultValue ",nameMatiere);
+          if(nameMatiere.search(name) != -1){
+            //this.haveData = true;
+            listData.push(data[i]) ;
+          }
+          i = i + 1 ;
+        }
+      }
+    );
+    this.matieres = [];
+    this.matieres = listData;
+  }
   getAllMatieres(){
     this.http.get<Matiere[]>(config.serviceBase + 'api/matiere/').subscribe(
       matieres => this.matieres = matieres,

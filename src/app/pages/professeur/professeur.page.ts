@@ -13,6 +13,7 @@ export class ProfesseurPage implements OnInit {
   errorMessage = '';
   imUser = '../../../assets/images/userIm.png'
   
+  inputSearch ="";
   constructor(private serviceProfesseur: ProfesseurService,
     private router : Router
     ) { }
@@ -25,6 +26,45 @@ export class ProfesseurPage implements OnInit {
         //this.errorMessage = this.errorMessage.split(' ')[0]
       }
     )
+  }
+
+   //Refrech
+   doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+  //search 
+  onInput($event){
+    // this.inputSearch += $event.detail.data;
+    // console.log("Event search ", $event.detail.data);
+    // console.log("Mot search ", this.inputSearch);
+    // await this.serviceProfesseur.searchProfesseeur(this.inputSearch) 
+
+    // Reset items back to all of the items
+    var val = $event.target.value;
+    this.inputSearch = val;
+    console.log('input ', val);
+    console.log('input item ',  val.trim());
+    this.serviceProfesseur.searchProfesseeur(this.inputSearch);
+  }
+  //Cancel search
+  async onCancel(){
+    this.inputSearch = '';
+    console.log("onCancel ^^^^^^^^^^^^^^ ");
+    //this.myInput = ' ';
+    
+    //this.myData = this.service.allData;
+    this.serviceProfesseur.getAllProfesseurs().subscribe(
+      data => {
+        //this.service.AddData = data as any;
+        console.log("Cancel " , data);
+        this.router.navigate(['/professeur/']);
+      }
+    );
   }
 
   addProfesseur(){
