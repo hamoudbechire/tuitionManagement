@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Salles</ion-title>
+   <!-- <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons> -->
+    <ion-icon class="add-icon-container" button slot="end" style="margin-right: 15px;" name="log-out" size="large" (click)="logOut()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding >
+  <ion-list>
+    <ion-item *ngFor="let item of (salles | async)">
+      <ion-label text-wrap>  
+        <h2 style="font-weight: bold;">{{ item.numSalle }}</h2>
+        <h2 style="color: blue;display: flex; justify-content: center;" *ngIf="item.libre">salle libre</h2>
+        <h2 style="color: rgb(255, 0, 170);display: flex; justify-content: center;" *ngIf="!item.libre">salle occupeé</h2>
+      </ion-label>
+       <ion-icon button class="edit_icon" slot="end" name="create-outline" (click)="editSalle(item)"></ion-icon>
+       <ion-icon button class="delete_icon" slot="end" name="trash-outline" (click)="confirmDelete(item.salleId)"></ion-icon>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>
+<div  class="add-icon-container"> 
+  <ion-icon color="primary" button name="add-circle-sharp" ></ion-icon>
+</div>

@@ -8,7 +8,7 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class SignupService {
-  public url = config.serviceBase+"admins/"
+  public url = config.serviceBase+"api/admins/"
   constructor(private http: HttpClient) { }
 
   addAdmin(admin: Admin) {

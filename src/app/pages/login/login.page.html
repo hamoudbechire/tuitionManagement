@@ -1,9 +1,52 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
+  <div style="display: flex;justify-content: center;">
+  <form  [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
 
+    <ion-card style="margin: 60px;margin-bottom: 30px;">
+      <ion-item lines="full">
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input formControlName="phone" [(ngModel)]="this.phone" type="number"></ion-input>
+      </ion-item>
+      
+      <ion-item lines="full">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password" [(ngModel)]="this.password" required>
+        </ion-input>
+      </ion-item>
+
+    </ion-card>
+
+    <div style="margin-left: 60px;margin-right: 60px;">
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" [disabled]="!this.loginForm.valid" fill="outline" color="primary" expand="block">Login</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="authFld" class="ion-text-center">
+        <ion-col style="color: tomato; ">
+          invalid credentials !
+        </ion-col>
+      </ion-row>
+
+      <ion-item class="ion-text-center">
+        <ion-label>Or</ion-label>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button fill="outline" color="primary" expand="block" [routerLink]="['/','signup']">Create Account</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+  </form>
+</div>
 </ion-content>

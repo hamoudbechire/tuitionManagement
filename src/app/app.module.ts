@@ -4,14 +4,17 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Camera } from '@ionic-native/camera/ngx';
+import { Network } from '@ionic-native/network/ngx';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; 
 import { FormBuilder } from '@angular/forms';
+import { AuthInterceptorService } from './services/oauth-interceptor.service';
 
 export const config = {
-  serviceBase: "http://192.168.1.230:1003/", //"http://192.168.1.243:1008/api/",
-  clientId: 'school-management',
+  serviceBase: "http://192.168.1.243:1008/",
+  clientId: 'market-place',
   clientSecret: 'Hmd123'
 }
 export const firebaseConfig = {
@@ -35,8 +38,10 @@ export const firebaseConfig = {
     useClass: IonicRouteStrategy,
    },
    Camera, 
-    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
-    FormBuilder
+   Network,
+   NativeStorage,
+   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+   FormBuilder,
   ],
 })
 export class AppModule {}
