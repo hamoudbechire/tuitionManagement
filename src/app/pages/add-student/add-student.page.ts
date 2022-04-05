@@ -34,7 +34,7 @@ export class AddStudentPage implements OnInit {
     etudiant.classeId = this.inputSelect;
     this.studentService.createEtudiant(etudiant)
       .subscribe( data => {
-        this.router.navigate(['etudiant']);
+        this.router.navigate(['student']);
       });
   }
 

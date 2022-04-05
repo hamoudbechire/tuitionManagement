@@ -5,33 +5,20 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" > 
-    <ion-grid>
-      <ion-row color="primary" justify-content-center></ion-row>
-      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-        <div padding>
-          <ion-row>
-            <ion-col>
-              <ion-input formControlName="firstName" placeholder="First Name" name="firstName" >
-                <ion-icon slot="start" name="person-outline"></ion-icon>
-              </ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input formControlName="lastName" placeholder="Last Name" name="lastName">
-                <ion-icon slot="start" name="person-outline"></ion-icon>
-              </ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input formControlName="phone" placeholder="Phone" name="phone" >
-                <ion-icon name="at-circle-outline"></ion-icon>
-              </ion-input>
-            </ion-col>    
-          </ion-row>
-          <ion-row>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" style="margin-bottom: 16px;"> 
+    
+          <ion-item lines="none">
+            <ion-input formControlName="firstName" placeholder="First Name" name="firstName" ></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-input formControlName="lastName" placeholder="Last Name" name="lastName">
+            </ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-input formControlName="phone" placeholder="Phone" name="phone" >
+            </ion-input>
+          </ion-item>
+          
             <ion-item>
               <ion-label>Classe</ion-label>
               <ion-select (ionChange)="onChange($event)" >
@@ -40,13 +27,12 @@
                 </ion-select-option>
               </ion-select>   
           </ion-item>
-          </ion-row>
-        </div>
+         
+   
          <ion-button size="large" type="submit"  expand="block"></ion-button>
       
   
-      </ion-col>
-    </ion-grid>
+      
   </form>
 
 </ion-content>

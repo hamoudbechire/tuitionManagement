@@ -34,6 +34,8 @@ const routes: Routes = [
   {
     path: 'salles',
     loadChildren: () => import('./pages/salles/salles.module').then( m => m.SallesPageModule)
+  },
+  {
     path: 'student',
     loadChildren: () => import('./pages/student/student.module').then( m => m.StudentPageModule)
   },
@@ -42,9 +44,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/add-student/add-student.module').then( m => m.AddStudentPageModule)
   },
   {
-    path: 'edit-student',
+    path: 'edit-student/:id',
     loadChildren: () => import('./pages/edit-student/edit-student.module').then( m => m.EditStudentPageModule)
+  },  {
+    path: 'classe',
+    loadChildren: () => import('./pages/classe/classe.module').then( m => m.ClassePageModule)
   },
+
 
 
 

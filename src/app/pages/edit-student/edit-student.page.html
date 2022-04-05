@@ -5,5 +5,34 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" style="margin-bottom: 16px;"> 
+    
+    <ion-item lines="none">
+      <ion-input  formControlName="firstName" placeholder="First Name" name="firstName" ></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input formControlName="lastName" placeholder="Last Name" name="lastName">
+      </ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input formControlName="phone" placeholder="Phone" name="phone" >
+      </ion-input>
+    </ion-item>
+    
+      <ion-item>
+        <ion-label>Classe</ion-label>
+        <ion-select (ionChange)="onChange($event)" >
+          <ion-select-option *ngFor="let classe of this.classeService.classes" value="{{classe.classeId}}">
+            {{classe.name}}
+          </ion-select-option>
+        </ion-select>   
+    </ion-item>
+   
+
+   <ion-button size="large" type="submit"  expand="block"></ion-button>
+
+
+
+</form>
 
 </ion-content>

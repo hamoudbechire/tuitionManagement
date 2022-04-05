@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditStudentPageRoutingModule } from './edit-student-routing.module';
+import { ClassePageRoutingModule } from './classe-routing.module';
 
-import { EditStudentPage } from './edit-student.page';
+import { ClassePage } from './classe.page';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { EditStudentPage } from './edit-student.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    EditStudentPageRoutingModule
+    ClassePageRoutingModule
   ],
-  declarations: [EditStudentPage]
+  declarations: [ClassePage]
 })
-export class EditStudentPageModule {}
+export class ClassePageModule {}

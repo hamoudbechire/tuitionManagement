@@ -10,7 +10,7 @@ import { Etudiant } from '../Models/Etudiant';
 export class StudentService {
   
   constructor(private http : HttpClient) { }
-  baseUrl: string = 'http://localhost:55420/api/etudiant';
+ 
   getAllEtudiant() {
     
     return this.http.get<Etudiant[]>(config.serviceBase + 'api/etudiant/list' );

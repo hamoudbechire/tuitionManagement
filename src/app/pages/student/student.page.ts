@@ -28,17 +28,18 @@ export class StudentPage implements OnInit {
       })
   };
 
-  editEtudiant(etudiant: Etudiant): void {
-    localStorage.removeItem("editUserId");
-    localStorage.setItem("editUserId", etudiant.etudiantId.toString());
-    this.router.navigate(['etudiant']);
-  };
+  editEtudiant(id){
+    this.router.navigate(['edit-student/'+id])
+    console.log("Updated prof : ", id); 
+  }
 
   newEtudiant(){
-    this.router.navigate(['addetudiant'])
+    this.router.navigate(['add-student'])
 
   };
 
+  
+  
 
 
 }
