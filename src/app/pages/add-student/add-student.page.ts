@@ -10,7 +10,7 @@ import { ClasseService } from 'src/app/services/classe.service';
   templateUrl: './add-etudiant.page.html',
   styleUrls: ['./add-etudiant.page.scss'],
 })
-export class AddEtudiantPage implements OnInit {
+export class AddStudentPage implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router, private etudiantService: EtudiantService, private classeService : ClasseService) { }
 
   addForm: FormGroup;

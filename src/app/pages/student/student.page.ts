@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   templateUrl: './etudiant.page.html',
   styleUrls: ['./etudiant.page.scss'],
 })
-export class EtudiantPage implements OnInit {
+export class StudentPage implements OnInit {
   
   etudiants: Etudiant[];
 
