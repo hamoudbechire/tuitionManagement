@@ -17,7 +17,7 @@ export class AddProfesseurPage implements OnInit {
   professeur : Professeur = new Professeur();
 
   form : FormGroup;
-  inputSelect;
+  inputSelect = "ee";
 
   constructor(private activedRoute : ActivatedRoute,
     private profeseeurService : ProfesseurService,
@@ -56,7 +56,7 @@ export class AddProfesseurPage implements OnInit {
 
     this.form = this.fromBuilder.group({ 
       idProf : null, 
-     // matiereId : null,
+     matiereId : null,
       firstName : ['default', [Validators.required, Validators.minLength(3)]],
       lastName : ['', [Validators.required, Validators.minLength(3)]],
       mail: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]], 

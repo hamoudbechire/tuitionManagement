@@ -6,9 +6,9 @@ import { ClasseService } from 'src/app/services/classe.service';
 
 
 @Component({
-  selector: 'app-add-etudiant',
-  templateUrl: './add-etudiant.page.html',
-  styleUrls: ['./add-etudiant.page.scss'],
+  selector: 'app-add-student',
+  templateUrl: './add-student.page.html',
+  styleUrls: ['./add-student.page.scss'],
 })
 export class AddStudentPage implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router, private etudiantService: EtudiantService, private classeService : ClasseService) { }

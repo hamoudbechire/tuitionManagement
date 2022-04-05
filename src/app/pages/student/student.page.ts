@@ -5,8 +5,8 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-etudiant',
-  templateUrl: './etudiant.page.html',
-  styleUrls: ['./etudiant.page.scss'],
+  templateUrl: './student.page.html',
+  styleUrls: ['./student.page.scss'],
 })
 export class StudentPage implements OnInit {
   

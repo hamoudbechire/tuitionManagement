@@ -51,7 +51,7 @@
             </ion-col>
             
             <ion-col>
-              <ion-input formControlName="phone" type="phone" placeholder="Phone " >
+              <ion-input formControlName="phone" type="phone" placeholder="Phone" >
                 <ion-icon name="phone-portrait-outline"></ion-icon>
               </ion-input>
             </ion-col>
@@ -61,7 +61,7 @@
           <ion-row>
             <ion-item>
               <ion-label>Matiere</ion-label>
-              <ion-select (ionChange)="onChange($event)" selected="2">
+              <ion-select (ionChange)="onChange($event)"  formControlName="phone" selected="true">
                 <ion-select-option *ngFor="let matiere of this.matriereService.matieres" value="{{matiere.idMatiere}}">
                   {{matiere.nameMatiere}}
                 </ion-select-option>
@@ -69,7 +69,7 @@
               <!-- <ion-select [(ngModel)]="number">
                 <ion-option *ngFor="let count of quantity" value="count"></ion-option>
               </ion-select> -->
-          </ion-item>
+            </ion-item> 
           </ion-row>
         </div>
        

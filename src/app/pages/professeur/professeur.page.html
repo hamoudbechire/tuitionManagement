@@ -71,10 +71,16 @@
     
     <ion-tabs> 
       <ion-router-outlet></ion-router-outlet>
-        <ion-tab-bar slot="bottom" (click)="addProfesseur()">
+        <!-- <ion-tab-bar slot="bottom" (click)="addProfesseur()">
           <ion-icon name="add-circle-outline"></ion-icon>
-        </ion-tab-bar>
+        </ion-tab-bar> -->
  
+        <!-- fab placed to the top end -->
+        <ion-fab vertical="top" horizontal="center" slot="fixed" color="light">
+        <ion-fab-button (click)="addProfesseur()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
     </ion-tabs>
     
   </ion-toolbar>
