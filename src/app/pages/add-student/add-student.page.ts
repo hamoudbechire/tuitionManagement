@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import { EtudiantService } from 'src/app/services/student.service';
+import { StudentService } from 'src/app/services/student.service';
 import { ClasseService } from 'src/app/services/classe.service';
 
 
@@ -11,7 +11,7 @@ import { ClasseService } from 'src/app/services/classe.service';
   styleUrls: ['./add-student.page.scss'],
 })
 export class AddStudentPage implements OnInit {
-  constructor(private formBuilder: FormBuilder,private router: Router, private etudiantService: EtudiantService, private classeService : ClasseService) { }
+  constructor(private formBuilder: FormBuilder,private router: Router, private studentService: StudentService, private classeService : ClasseService) { }
 
   addForm: FormGroup;
   
@@ -32,7 +32,7 @@ export class AddStudentPage implements OnInit {
   onSubmit() {
     let etudiant = this.addForm.value
     etudiant.classeId = this.inputSelect;
-    this.etudiantService.createEtudiant(etudiant)
+    this.studentService.createEtudiant(etudiant)
       .subscribe( data => {
         this.router.navigate(['etudiant']);
       });

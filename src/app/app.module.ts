@@ -13,7 +13,7 @@ import { FormBuilder } from '@angular/forms';
 import { AuthInterceptorService } from './services/oauth-interceptor.service';
 
 export const config = {
-  serviceBase: "http://192.168.1.243:1008/",
+  serviceBase: "http://192.168.1.243:1008/api/",
   clientId: 'market-place',
   clientSecret: 'Hmd123'
 }

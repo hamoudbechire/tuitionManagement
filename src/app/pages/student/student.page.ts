@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Etudiant } from 'src/app/Models/Etudiant';
-import { EtudiantService } from 'src/app/services/student.service';
+import { StudentService } from 'src/app/services/student.service';
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-etudiant',
+  selector: 'app-student',
   templateUrl: './student.page.html',
   styleUrls: ['./student.page.scss'],
 })
@@ -12,17 +12,17 @@ export class StudentPage implements OnInit {
   
   etudiants: Etudiant[];
 
-  constructor( private router : Router, private etudiantService: EtudiantService) { }
+  constructor( private router : Router, private studentService: StudentService) { }
 
   ngOnInit() {
-    this.etudiantService.getAllEtudiant()
+    this.studentService.getAllEtudiant()
       .subscribe( data => {
         this.etudiants = data;
       });
   }
 
   deleteEtudiant(etudiant: Etudiant): void {
-    this.etudiantService.deleteEtudiant(etudiant.etudiantId)
+    this.studentService.deleteEtudiant(etudiant.etudiantId)
       .subscribe( data => {
         this.etudiants = this.etudiants.filter(u => u !== etudiant);
       })
