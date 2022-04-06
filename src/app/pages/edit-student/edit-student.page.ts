@@ -34,7 +34,8 @@ export class EditStudentPage implements OnInit {
       firstName : ['', Validators.required],
       lastName : ['', Validators.required],
       phone : ['', Validators.required],
-      classeId : ['', Validators.required]
+      classeId : ['', Validators.required],
+    
       
     });
     this.studentService.getEtudiantById(this.id)
@@ -57,8 +58,6 @@ export class EditStudentPage implements OnInit {
 
   onChange(value){
     this.inputSelect = value.detail.value
-    console.log("Selected value", value); 
-    console.log("Selected Matiere Id ", this.inputSelect); 
 }
 
 }

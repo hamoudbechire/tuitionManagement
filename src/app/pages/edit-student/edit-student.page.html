@@ -20,7 +20,7 @@
     </ion-item>
     
       <ion-item>
-        <ion-label>Classe</ion-label>
+        <ion-label  >Classe</ion-label>
         <ion-select (ionChange)="onChange($event)" >
           <ion-select-option *ngFor="let classe of this.classeService.classes" value="{{classe.classeId}}">
             {{classe.name}}
