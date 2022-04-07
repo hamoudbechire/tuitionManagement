@@ -55,6 +55,11 @@ const routes: Routes = [
     path: 'classe',
     loadChildren: () => import('./pages/classe/classe.module').then( m => m.ClassePageModule)
   },
+  {
+    path: 'absence',
+    loadChildren: () => import('./pages/absence/absence.module').then( m => m.AbsencePageModule)
+  },
+
 
 
 

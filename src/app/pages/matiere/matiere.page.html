@@ -74,17 +74,15 @@
 <!-- Footer without a border -->
 <ion-footer class="ion-no-border">
   <ion-toolbar>
-    
-    <ion-tabs>
-      <!-- <button class="btn btn-light" ion-button type="submit" (click)="addMatiere()">
-        <ion-icon name="add-sharp"></ion-icon>
-      </button> -->
-      <ion-router-outlet></ion-router-outlet>
-        <ion-tab horizontal="center" style="zoom : 3.0; margin-left: 50%;" (click)="addMatiere()"> <!---->
-          <ion-icon color="primary" name="add-circle"></ion-icon>
-        </ion-tab>
- 
+     
+    <!-- <button class="btn btn-light" ion-button type="submit" (click)="addMatiere()">
+      <ion-icon name="add-sharp"></ion-icon>
+    </button> -->
+    <ion-router-outlet></ion-router-outlet>
+    <ion-tabs horizontal="center" style="zoom : 3.0; margin-left: 50%;" (click)="addMatiere()">  
+      <ion-icon color="primary" name="add-circle"></ion-icon>
     </ion-tabs>
+
     <ion-card *ngIf="showInput" lines=none>
       <ion-card-header>  
         <div>

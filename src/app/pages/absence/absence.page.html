@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>absence</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Checkboxes in a List -->
+<ion-list>
+  <ion-item *ngFor="let etudiant of etudiants">
+    <ion-label>{{etudiant.firstName}} {{etudiant.lastName}}</ion-label>
+    <ion-checkbox slot="end" (ionChange)="onChange($event, etudiant.etudiantId)" ></ion-checkbox>
+  </ion-item>
+</ion-list>
+</ion-content>

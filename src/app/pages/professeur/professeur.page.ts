@@ -20,7 +20,10 @@ export class ProfesseurPage implements OnInit {
 
   ngOnInit() {
     this.serviceProfesseur.getAllProfesseurs().subscribe(
-      data => this.DataLoaded = true,
+      data => {
+        this.DataLoaded = true;
+        this.errorMessage = '';
+      },
       err => {
         this.errorMessage = err.message;
         //this.errorMessage = this.errorMessage.split(' ')[0]
