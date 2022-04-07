@@ -1,16 +1,17 @@
-<ion-header >
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-menu-button slot="start" menu="main-menu" ></ion-menu-button>
-   
-  <br><br><br><br><br>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu" ></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
   <!-- Default Searchbar -->
-  <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" 
+  <ion-searchbar style="width: 100%;" [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" 
     (ionInput)="onInput($event)" (ionCancel)="onCancel()" >
   </ion-searchbar>
-  </ion-toolbar>
+  
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-no-border">
  <div>
     <div class="text-end">
       <!-- <button class="btn btn-primary" ion-button type="submit" (click)="addMatiere()"><ion-icon name="add-sharp"></ion-icon>Add Matiere</button> -->
@@ -40,14 +41,12 @@
             <ion-button color="success" (click)="updateMatiere(matiere)">Ok</ion-button>
           </div>
         </ion-col>
-        <ion-col>
-          <ion-button color="success" (click)="detailMatiere(matiere.idMatiere)"> <ion-icon name="reader-outline"></ion-icon></ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button color="danger" (click)="deleteMatiere(matiere.idMatiere)"><ion-icon name="trash-outline"></ion-icon></ion-button>
-        </ion-col>
+        
+          <ion-icon style="zoom: 1.1;" name="reader-outline" color="success" (click)="detailMatiere(matiere.idMatiere, matiere.nameMatiere)"></ion-icon>
+         
+          <ion-icon style="zoom: 1.1;" name="trash-outline" color="danger" (click)="deleteMatiere(matiere.idMatiere)"></ion-icon>
+       
       </ion-row>
-      <hr>
     </ion-grid>
     <!-- <div *ngFor="let d of this.serviceEmployee.employees">
       <b> Id : </b> {{d.ID}} <br>
@@ -73,7 +72,7 @@
 
 
 <!-- Footer without a border -->
-<ion-footer >
+<ion-footer class="ion-no-border">
   <ion-toolbar>
     
     <ion-tabs>
@@ -81,32 +80,26 @@
         <ion-icon name="add-sharp"></ion-icon>
       </button> -->
       <ion-router-outlet></ion-router-outlet>
-        <ion-tab-bar slot="bottom" (click)="addMatiere()">
-          <ion-icon name="add-circle-outline"></ion-icon>
-        </ion-tab-bar>
-<!--       
-      <ion-tab-bar slot="bottom" >
-        <button (click)="addMatiere()" tab="schedule">
-          <ion-icon name="add-circle-outline" ></ion-icon>
-          <ion-label>Schedule</ion-label>
-          <ion-badge>6</ion-badge>
-        </button>  
-      </ion-tab-bar> -->
+        <ion-tab horizontal="center" style="zoom : 3.0; margin-left: 50%;" (click)="addMatiere()"> <!---->
+          <ion-icon color="primary" name="add-circle"></ion-icon>
+        </ion-tab>
+ 
     </ion-tabs>
-    <ion-card *ngIf="showInput">
-      <ion-card-header> 
-        <ion-card-subtitle>Add Matiere</ion-card-subtitle>
-        <ion-icon name="close-outline"></ion-icon>
+    <ion-card *ngIf="showInput" lines=none>
+      <ion-card-header>  
+        <div>
+          Add Matiere  
+          <ion-icon slot="end" style="zoom : 1.5; margin-left: 60%;" name="close-outline" (click)="cancel()"></ion-icon>
+         </div>
       </ion-card-header>
-    
-      <ion-input name="matiere" type="text" placeholder="Name Matiere " [(ngModel)]="matiere" required></ion-input>
-      <button class="btn btn-primary" ion-button type="submit" (click)="addMatiere()">Add</button>
       
+
+      <ion-input name="matiere" type="text" placeholder="Name Matiere" [(ngModel)]="matiere" required></ion-input>
+      <button class="btn btn-primary" ion-button type="submit" (click)="addMatiere()">Add</button>
     </ion-card>
-  </ion-toolbar>
+  </ion-toolbar> 
   <ion-content>
    
   </ion-content>
- 
 </ion-footer>
  

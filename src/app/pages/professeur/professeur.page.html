@@ -1,13 +1,13 @@
-<ion-header >
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-menu-button slot="start" menu="main-menu" ></ion-menu-button>
-   
-    <br><br><br><br><br>
-    <!-- Default Searchbar -->
-    <ion-searchbar class="text-center" [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" 
-      (ionInput)="onInput($event)" (ionCancel)="onCancel()" >
-    </ion-searchbar>
   </ion-toolbar>
+
+  <!-- Default Searchbar -->
+  <ion-searchbar class="text-center" [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" 
+    (ionInput)="onInput($event)" (ionCancel)="onCancel()" >
+  </ion-searchbar>
+  
 </ion-header>
 
 <ion-content>
@@ -36,10 +36,11 @@
         <b> {{p.firstName}}  {{p.lastName}}</b> 
       </ion-col>
       <ion-col>
-        <ion-button color="success" (click)="updateProfesseur(p.idProf)"> <ion-icon name="reader-outline"></ion-icon></ion-button>
+        <ion-icon style="margin-left: 90%;" color="success" (click)="updateProfesseur(p.idProf)" name="reader-outline"></ion-icon>
+        <!-- <ion-button > </ion-button> -->
       </ion-col>
       <ion-col>
-        <ion-button color="danger" (click)="deleteProfesseur(p.idProf)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+        <ion-icon style="margin-left: 50%;"  color="danger" (click)="deleteProfesseur(p.idProf)" name="trash-outline"></ion-icon>
       </ion-col>
     </ion-row>
     <hr>
@@ -66,7 +67,7 @@
 
 
 <!-- Footer without a border -->
-<ion-footer >
+<ion-footer class="ion-no-border">
   <ion-toolbar>
     
     <ion-tabs> 

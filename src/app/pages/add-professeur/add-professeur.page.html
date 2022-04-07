@@ -26,12 +26,14 @@
               <ion-input formControlName="firstName" type="text" placeholder="First Name " >
                 <ion-icon slot="start" name="person-outline"></ion-icon>
               </ion-input>
-              <!-- Error messages   -->
-              <!-- error-message" *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched) -->
-              <span color="red" class="error ion-padding" *ngIf="form.get('firstName').hasError(minLength) && (form.get('firstName').dirty || form.get('firstName').touched)">
-                <!--form.invalid && !errorCtr.firstName.errors?.minLength-->
-                Name is required.
-              </span>
+               
+               <!-- Error messages -->
+               <span style="color:red;" *ngIf="errorControl.firstName.errors?.required && errorControl.firstName.touched">
+                Fist Name is required.
+               </span>
+                <span style="color:red;" *ngIf="errorControl.firstName.errors?.minLength && errorControl.firstName.touched">
+                  min Length be 3.
+                </span>
              
             </ion-col>
             
@@ -39,6 +41,10 @@
               <ion-input formControlName="lastName" type="text" placeholder="Last Name " >
                 <ion-icon slot="start" name="person-outline"></ion-icon>
               </ion-input>
+               <!-- Error messages -->
+               <span style="color:red;" *ngIf="errorControl.lastName.errors?.required && errorControl.lastName.touched">
+                Last Name is required.
+              </span>
             </ion-col>
           </ion-row>
            
@@ -48,12 +54,27 @@
               <ion-input formControlName="mail" type="mail" placeholder="Email" >
                 <ion-icon name="at-circle-outline"></ion-icon>
               </ion-input>
+               <!-- Error messages -->
+               <span style="color:red;" *ngIf="errorControl.mail.errors?.required && errorControl.mail.touched">
+                Mail is required.
+              </span>
+              <span style="color:red;" *ngIf="errorControl.mail.errors?.pattern && errorControl.mail.touched">
+                mail content caratcters @ .
+              </span>
             </ion-col>
             
             <ion-col>
               <ion-input formControlName="phone" type="phone" placeholder="Phone" >
                 <ion-icon name="phone-portrait-outline"></ion-icon>
               </ion-input>
+               <!-- Error messages -->
+               <span style="color:red;" *ngIf="errorControl.phone.errors?.required && errorControl.phone.touched">
+                Phone is required.
+              </span>
+              <!-- Error messages -->
+              <span style="color:red;" *ngIf="errorControl.phone.errors?.pattern && errorControl.phone.touched">
+                phone must be a number .
+              </span>
             </ion-col>
           </ion-row>
          
@@ -61,7 +82,7 @@
           <ion-row>
             <ion-item>
               <ion-label>Matiere</ion-label>
-              <ion-select (ionChange)="onChange($event)"  formControlName="phone" selected="true">
+              <ion-select (ionChange)="onChange($event)" selected="true"> <!-- <ion-list></ion-list>-->
                 <ion-select-option *ngFor="let matiere of this.matriereService.matieres" value="{{matiere.idMatiere}}">
                   {{matiere.nameMatiere}}
                 </ion-select-option>

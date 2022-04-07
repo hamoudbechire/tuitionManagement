@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { MatiereService } from 'src/app/services/matiere.service';
 
 @Component({
@@ -19,9 +20,12 @@ export class MatierePage implements OnInit {
   showInput = false;
 
   inputSearch ;
-  constructor( private matiereService : MatiereService,
-    private router : Router) { }
-
+  constructor( 
+    private matiereService : MatiereService,
+    private router : Router 
+    ) {  
+    }
+   
   ngOnInit() {
     this.matiereService.getAllMatieres().subscribe(
       data => this.dataLoaded = true,
@@ -58,6 +62,12 @@ export class MatierePage implements OnInit {
     );
   }
 
+  // bar
+  cancel(){
+    console.log("Cancel " );
+    this.showInput = false;
+    //this.router.navigate(['/matiere/']);
+  }
   back(){
     this.matiere = '';
     this.showInput = false;
@@ -84,8 +94,9 @@ export class MatierePage implements OnInit {
     }
   }
   //show detail from matiere
-  detailMatiere(id){
+  detailMatiere(id, name){
     this.id = id;  
+    this.matiereName = name;
   }
   updateMatiere(matiere){
     this.id = -1;

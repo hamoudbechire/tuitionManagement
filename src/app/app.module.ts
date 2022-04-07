@@ -9,12 +9,12 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; 
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './services/oauth-interceptor.service';
 
 export const config = {
-  serviceBase: "http://192.168.1.242:1003/",
-  clientId: 'market-place',
+  serviceBase: "http://192.168.1.230:1003/", //"http://192.168.1.243:1008/api/",
+  clientId: 'school-management',
   clientSecret: 'Hmd123'
 }
 export const firebaseConfig = {
@@ -30,7 +30,10 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule], 
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ], 
   bootstrap: [AppComponent],
   providers: [
    { 

@@ -1,6 +1,6 @@
 <ion-app> 
   <ion-menu menuId="main-menu" contentId="main">
-    <ion-header>
+    <ion-header class="ion-no-border">
       <ion-toolbar>
         <button (click)="goProfil()">
           <ion-thumbnail slot="start"> 
@@ -10,6 +10,7 @@
         <ion-title slot="end">Menu</ion-title>
       </ion-toolbar>
     </ion-header>
+
     <ion-content>
       <ion-list>
         <ion-menu-toggle>
@@ -26,6 +27,20 @@
           </ion-item>
         </ion-menu-toggle>
         
+        <ion-menu-toggle>
+          <ion-item routerLink="/salles">
+            <ion-icon slot="start" name="business-outline"></ion-icon>
+            <ion-label>Salles</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item routerLink="/student">
+            <ion-icon slot="start" name="people-circle-outline"></ion-icon>
+            <ion-label>Student</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
         <ion-item >
           <ion-icon name="log-out-outline" slot="start"></ion-icon>
           <ion-label>LogOut</ion-label>
