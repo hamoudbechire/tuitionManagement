@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { config } from '../app.module';
+import { Salle } from '../Models/salle';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +14,15 @@ export class SalleService {
 
   constructor( private http: HttpClient) { }
 
-  getSalles() : Observable<any> {
-    return this.http.get<any>(this.url).pipe( map(results => results) );
+  getSalles() : Observable<Salle[]> {
+    return this.http.get<Salle[]>(this.url);
   }
   addSalle (salle: any){
     return this.http.post(this.url+"/add", salle)
-    .subscribe(data => {
-      console.log(data);
-    }, error => {
-      console.log(error);
-    });
+    /* .subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    ) */
   }
   deleteSalle(id: number) {
     return this.http.delete(this.url+"/delete/"+id)

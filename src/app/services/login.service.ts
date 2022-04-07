@@ -30,14 +30,15 @@ export class LoginService {
       var userData =
         'grant_type=password' +
         '&username=' +
-        username +
+        "222"+username +
         '&password=' +
-        password +
+        password /* +
         '&client_id=' +
         config.clientId +
         '&client_secret=' +
-        config.clientSecret;
-
+        config.clientSecret; */
+      console.log(userData);
+      
       this.httpClient
         .post(config.serviceBase + 'token', userData, {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -53,7 +54,7 @@ export class LoginService {
             this.setAuthentificatedUser();
 
             this.httpClient
-              .get(`${config.serviceBase}api/admins/findAdmin/${"+222"+userName}`)
+              .get(`${config.serviceBase}api/admins/findAdmin/${userName}`)
               .subscribe(
                 async (response) => {
                   let userLoged: Admin = new Admin();
@@ -61,7 +62,7 @@ export class LoginService {
                   console.log('user loged is : ', userLoged);
                   this.admin = response as Admin;
                   this.authentication.isAuthenticated = true;
-                  this.authentication.userName = response['userName'];
+                  this.authentication.userName = response['firstName'];
                   this.setCurrentUser(this.admin, this.authentication);
                   resolve(response);
                 },

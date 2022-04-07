@@ -87,7 +87,8 @@ export class SignupPage implements OnInit {
     await actionSheet.present();
   }
   signup(){
-    this.admin.phone = "+222"+this.admin.phone;
+    this.admin.phone = "+222"+this.admin.phone; 
+    this.admin.isActivated = false; 
     if (this.captureDataUrl == '' || this.captureDataUrl == null) {
       this.admin.profilImageUrl = "";
       console.log(this.admin);

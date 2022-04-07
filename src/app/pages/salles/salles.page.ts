@@ -1,3 +1,4 @@
+import { AddSallePage } from './../add-salle/add-salle.page';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -5,6 +6,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AlertController, ModalController, NavController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
 import { SalleService } from 'src/app/services/salle.service';
+import { Salle } from 'src/app/Models/salle';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-salles',
@@ -13,19 +16,25 @@ import { SalleService } from 'src/app/services/salle.service';
 })
 export class SallesPage implements OnInit {
 
-  salles: Observable<any>;
+  salles: Salle[] = [];
+  openFormAdd = false;
+  salle: Salle = new Salle();
 
   constructor(
     private salleService: SalleService,
-    private router: Router,
     public alertController: AlertController,
     public loginService: LoginService,
     private navCtrl: NavController,
     public nativeStorage: NativeStorage,
-    private modalController: ModalController
-  ) {
+    private modalController: ModalController,
 
-    this.salles = this.salleService.getSalles();
+  ) {
+    this.salleService.getSalles().subscribe(
+      data => {this.salles = data; console.log(data);
+      }
+    )
+    console.log(this.salles);
+    
    }
 
   ngOnInit() {
@@ -73,8 +82,28 @@ export class SallesPage implements OnInit {
     this.navCtrl.navigateRoot("/login");
   }
 
-  async addSalle(){
-    //const modal = await this.modalController.cre
-  }
+  
+  async addSalle() {
+    /* const modal = await this.modalController.create({
+      component:  AddSallePage,
+      componentProps: {}
+    });
+    modal.onDidDismiss().then((data) => {
+      modal.dismiss();
+    });
+    return await modal.present(); */
+    this.openFormAdd = false
+    this.salle.libre = true;
+    console.log(this.salle);
+    this.salle.numSalle && this.salle.numSalle !== "" 
+    ? this.salleService.addSalle(this.salle).subscribe(
+      data => this.salles.push(data as Salle),  
+      err => console.log(err)
+    
+    )
+    : alert("Num de salle Obligatoire");
+    
+    
 
+  }
 }

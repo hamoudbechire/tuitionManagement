@@ -10,7 +10,7 @@
 
 <ion-content padding >
   <ion-list>
-    <ion-item *ngFor="let item of (salles | async)">
+    <ion-item *ngFor="let item of salles">
       <ion-label text-wrap>  
         <h2 style="font-weight: bold;">{{ item.numSalle }}</h2>
         <h2 style="color: blue;display: flex; justify-content: center;" *ngIf="item.libre">salle libre</h2>
@@ -22,6 +22,17 @@
   </ion-list>
   
 </ion-content>
-<div  class="add-icon-container"> 
-  <ion-icon color="primary" button name="add-circle-sharp" ></ion-icon>
-</div>
+<ion-footer >
+  <div *ngIf="!this.openFormAdd" class="add-icon-container"> 
+    <ion-icon color="primary" button name="add-circle-sharp" (click)='this.openFormAdd = true' ></ion-icon>
+  </div>
+  <div *ngIf="this.openFormAdd"  class="form-container"> 
+    <ion-item>
+      <ion-label >Salle label:</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input style="background-color: rgb(241, 241, 228);flex: 2px;" placeholder="Numero de salle" [(ngModel)]="this.salle.numSalle" type="text"></ion-input>
+    </ion-item>
+    <ion-icon color="primary" button name="checkmark-circle-sharp" (click)='addSalle()' ></ion-icon>
+  </div>
+</ion-footer>

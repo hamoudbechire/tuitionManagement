@@ -1,3 +1,4 @@
+import { AddSallePage } from './pages/add-salle/add-salle.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -8,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'signup',
+    redirectTo: 'salles',
     pathMatch: 'full'
   },
   {
@@ -46,7 +47,11 @@ const routes: Routes = [
   {
     path: 'edit-student/:id',
     loadChildren: () => import('./pages/edit-student/edit-student.module').then( m => m.EditStudentPageModule)
-  },  {
+  },
+    path: 'add-salle',
+    loadChildren: () => import('./pages/add-salle/add-salle.module').then( m => m.AddSallePageModule)
+  },
+  {
     path: 'classe',
     loadChildren: () => import('./pages/classe/classe.module').then( m => m.ClassePageModule)
   },

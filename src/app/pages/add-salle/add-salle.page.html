@@ -1,9 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>addSalle</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="overlay" (click)="dismiss()"></div>
+  <!-- <ion-card >
+    <h2>Add Salle</h2> -->
 
+    <form class="modal_content"
+      color="primary"
+      [formGroup]="salle_form"
+      (ngSubmit)="addSalle()"
+      novalidate
+    >
+      <ion-item>
+        <ion-label position="floating"> salle label </ion-label>
+        <ion-input
+          formControlName="numsalle"
+          [(ngModel)]="this.salle.numSalle"
+          type="text"
+        ></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button
+            color="primary"
+            expand="block"
+            (click)='addSalle()'
+            >Save</ion-button
+          >
+        </ion-col>
+      </ion-row>
+      <!-- [disabled]="!this.salle_form.valid" -->
+    </form>
+  <!-- </ion-card> -->
 </ion-content>

@@ -1,0 +1,125 @@
+modal-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+}
+  .fit-picture {
+    object-fit:cover;
+  }
+  @media not all and (min-height: 600px) and (min-width: 768px) {
+    ion-modal ion-backdrop {
+      visibility: hidden;
+    }
+  }
+  
+  @media only screen and (min-height: 0px) and (min-width: 0px) {
+    .modal-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .main-view{
+      background: transparent;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: .5;
+      background-color: #000;
+    }
+    .modal_content {
+      display: block;
+      position: relative;
+      top: calc(50% - (50%/2));
+      left: 0;
+      right: 0;
+      width: 92%;
+      height: 60%;
+      padding: 10px;
+      z-index: 1;
+      margin: 0 auto;
+      padding: 10px;
+      color: #333;
+      background: #e8e8e8;
+      background: -moz-linear-gradient(top, #fff 0%, #e8e8e8 100%);
+      background: -webkit-linear-gradient(top, #fff 0%, #e8e8e8 100%);
+      background: linear-gradient(to bottom, #fff 0%, #e8e8e8 100%);
+      border-radius: 5px;
+      box-shadow: 0 2px 3px rgba(51, 51, 51, .35);
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      //overflow: hidden;
+    }
+    .circle{
+    position:absolute;
+    height:100px;
+    width:100px;
+    border-radius:50%;
+    border:3px solid white;
+    left:50%;
+    margin-left:-55px;
+    top: -40px;
+    background: #d33;
+    z-index: 10000;
+  }
+  .iconCenter {
+    text-align: center;
+    width: 263px;
+    //height: 50px;
+  }
+  .colorIconns{
+    --color:none;
+    color: #ffd700
+}
+.colorIconns2{
+  --color:none;
+    color: #000000
+}
+
+ion-content{
+    --background: transparent;
+}
+.color{
+  margin-left: 0.5em;
+ color:#15a9ce;
+}
+.iconCenter {
+  text-align: center;
+  width: 250px;
+  //height: 50px;
+}
+ion-item{
+//   --highlight-color-focused:transparent;
+//   --highlight-height:0;
+//   --highlight-color-invalid:#000;
+//   --highlight-color-valid:#ddd;
+//  // --min-height: 65px;
+//   --padding-start: 0;
+padding:-3px;
+--min-height: 5px;
+}
+.sizeRate{
+  width: 60px;
+  height: 60px;
+  border-radius: 80%;
+  //position: absolute;
+  top: -80px;
+ // left: calc(-50% - 50px);
+}

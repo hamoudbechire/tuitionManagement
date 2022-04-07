@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
       this.loginService.login(this.phone, this.password).then(
         success => {
          console.log(success)
-         this.navCtrl.navigateRoot("nav/employe");
+         //this.navCtrl.navigateRoot("nav/employe");
         },
         error => {
          console.log("error")
